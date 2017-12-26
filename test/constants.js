@@ -1,0 +1,1 @@
+export const originalLogins = ['veged', 'alt-j', 'yeti-or']

@@ -3,7 +3,7 @@ module.exports.index = function (req, res) {
     <html>
       <head>
         <title>Shri 2018</title>
-        <script src="/scripts/test.js"></script>
+        <script src="/scripts/index.js"></script>
       </head>
       <h1>Hello</h1>
     </html>
