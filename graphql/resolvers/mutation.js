@@ -61,10 +61,19 @@ module.exports = {
             });
   },
 
+  addUserToEvent (root, { id, userId }, context) {
+    return models.Event.findById(id)
+            .then(event => {
+              return event.addUser(userId)
+              .then(() => event);
+            });
+  },
+
   changeEventRoom (root, { id, roomId }, context) {
     return models.Event.findById(id)
             .then(event => {
-              event.setRoom(id);
+              event.setRoom(roomId);
+              return event;
             });
   },
 
