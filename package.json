@@ -9,7 +9,7 @@
     "node": ">=8.4.0"
   },
   "scripts": {
-    "test": "jest",
+    "test": "rm -f ./db.sqlite3 && node create-mock-data.js && nodemon index.js & jest && killall node",
     "lint": "semistandard",
     "reset-db": "rm -f ./db.sqlite3 && node create-mock-data.js",
     "dev": "nodemon index.js"
@@ -18,6 +18,9 @@
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }
+  },
+  "semistandard": {
+    "env": [ "jest" ]
   },
   "dependencies": {
     "express": "^4.15.4",
