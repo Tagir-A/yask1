@@ -14,14 +14,14 @@ test('tests config', () => {
 describe('test db creation', () => {
   test('should return user', async () => {
     expect.assertions(3);
-    const {status, success, data} = await testDB(queries.user );
+    const {status, success, data} = await testDB(queries.user);
     expect(status).toEqual(200);
     expect(success).toEqual(true);
     expect(data.user.login).toEqual('veged');
   });
   test('should return users', async () => {
     expect.assertions(6);
-    const { status, success, data } = await testDB(queries.users );
+    const { status, success, data } = await testDB(queries.users);
     expect(status).toEqual(200);
     expect(success).toEqual(true);
     expect(data.users.length).toEqual(3);
@@ -31,14 +31,14 @@ describe('test db creation', () => {
   });
   test('should return event', async () => {
     expect.assertions(3);
-    const {status, success, data} = await testDB(queries.event );
+    const {status, success, data} = await testDB(queries.event);
     expect(status).toEqual(200);
     expect(success).toEqual(true);
     expect(data.event.title).toEqual('ШРИ 2018 - начало');
   });
   test('should return events', async () => {
     expect.assertions(6);
-    const { status, success, data } = await testDB(queries.events );
+    const { status, success, data } = await testDB(queries.events);
     expect(status).toEqual(200);
     expect(success).toEqual(true);
     expect(data.events.length).toEqual(3);
@@ -48,14 +48,14 @@ describe('test db creation', () => {
   });
   test('should return room', async () => {
     expect.assertions(3);
-    const {status, success, data} = await testDB(queries.room );
+    const {status, success, data} = await testDB(queries.room);
     expect(status).toEqual(200);
     expect(success).toEqual(true);
     expect(data.room.title).toEqual('404');
   });
   test('should return rooms', async () => {
     expect.assertions(8);
-    const { status, success, data } = await testDB(queries.rooms );
+    const { status, success, data } = await testDB(queries.rooms);
     expect(status).toEqual(200);
     expect(success).toEqual(true);
     expect(data.rooms.length).toEqual(5);
@@ -82,7 +82,7 @@ describe('test db mutations', () => {
   test('should remove user', async () => {
     expect.assertions(4);
     const { status: mStatus, success: mSuccess, data: mData } = await testDB(mutations.removeUser);
-    const { data } = await testDB(queries.users );
+    const { data } = await testDB(queries.users);
     expect(mStatus).toEqual(200);
     expect(mSuccess).toEqual(true);
     expect(mData.removeUser.login).toEqual('lakukaracha');
@@ -105,7 +105,7 @@ describe('test db mutations', () => {
   test('should remove room', async () => {
     expect.assertions(4);
     const { status: mStatus, success: mSuccess, data: mData } = await testDB(mutations.removeRoom);
-    const { data } = await testDB(queries.rooms );
+    const { data } = await testDB(queries.rooms);
     expect(mStatus).toEqual(200);
     expect(mSuccess).toEqual(true);
     expect(mData.removeRoom.title).toEqual('Beef');
@@ -154,7 +154,7 @@ describe('test db mutations', () => {
   test('should remove event', async () => {
     expect.assertions(4);
     const { status: mStatus, success: mSuccess, data: mData } = await testDB(mutations.removeEvent);
-    const { data } = await testDB(queries.events );
+    const { data } = await testDB(queries.events);
     expect(mStatus).toEqual(200);
     expect(mSuccess).toEqual(true);
     expect(mData.removeEvent.title).toEqual('Eventos');
